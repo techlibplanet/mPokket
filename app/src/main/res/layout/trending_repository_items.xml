@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="TrendingRepositoriesBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="trendingRepository"
+            type="com.mpokket.models.TrendingRepositoriesModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        tools:ignore="RtlSymmetry">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:src="@{trendingRepository.avatar}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutMAin"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/author"
+                style="@style/ItemTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{trendingRepository.author}" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/ItemDescriptionStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{trendingRepository.name}"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/expandable_layout"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintTop_toBottomOf="@+id/layoutMAin">
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/ItemTitleStyle"
+                android:paddingTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{trendingRepository.description}" />
+
+            <TextView
+                android:id="@+id/language"
+                style="@style/ItemTitleStyle"
+                android:layout_below="@+id/description"
+                android:paddingTop="8dp"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/language_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{trendingRepository.language}" />
+
+            <TextView
+                android:id="@+id/stars"
+                style="@style/ItemTitleStyle"
+                android:drawableStart="@drawable/star_yellow"
+                android:layout_below="@+id/description"
+                android:layout_toEndOf="@+id/language"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:drawablePadding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(trendingRepository.stars)}" />
+
+            <TextView
+                android:id="@+id/forks"
+                style="@style/ItemTitleStyle"
+                android:drawableStart="@drawable/fork_black"
+                android:paddingStart="16dp"
+                android:layout_below="@+id/description"
+                android:layout_toEndOf="@+id/stars"
+                android:paddingTop="8dp"
+                android:drawablePadding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(trendingRepository.forks)}" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
