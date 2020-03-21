@@ -1,11 +1,13 @@
 package com.mpokket.repodetails
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.mpokket.R
 import com.mpokket.databinding.RepoDetailsBinding
 import com.mpokket.models.Item
+import com.mpokket.web.WebViewActivity
 import kotlinx.android.synthetic.main.toolbar.*
 
 class RepoDetailsActivity : AppCompatActivity() {
@@ -21,6 +23,15 @@ class RepoDetailsActivity : AppCompatActivity() {
 
         toolbar_actionbar.title = "Repo Details"
         setSupportActionBar(toolbar_actionbar)
+
+        dataBinding.projLink.setOnClickListener {
+            startActivity(
+                Intent(this, WebViewActivity::class.java).putExtra(
+                    "proj_link",
+                    item.html_url
+                )
+            )
+        }
 
     }
 }

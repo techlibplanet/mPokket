@@ -9,4 +9,5 @@
     <color name="background">#dddddd</color>
     <color name="white">#fff</color>
     <color name="window_background">#fbfbfb</color>
+    <color name="hyperlink_color">#0000EE</color>
 </resources>
