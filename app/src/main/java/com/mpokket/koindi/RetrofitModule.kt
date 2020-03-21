@@ -1,7 +1,7 @@
 package com.mpokket.koindi
 
 import com.mpokket.helper.Constants
-import com.mpokket.network.ITrendingRepositories
+import com.mpokket.network.ISearchRepositories
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -15,10 +15,10 @@ val retrofitModule = module {
         okHttp()
     }
     single {
-        retrofit(Constants.API_BASE_URL)
+        retrofit(Constants.SEARCH_BASE_URL)
     }
     single {
-        get<Retrofit>().create(ITrendingRepositories::class.java)
+        get<Retrofit>().create(ISearchRepositories::class.java)
     }
 
 }

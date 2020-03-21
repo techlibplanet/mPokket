@@ -6,8 +6,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="trendingRepository"
-            type="com.mpokket.models.TrendingRepositoriesModel" />
+            name="searchApiModel"
+            type="com.mpokket.models.Item" />
 
     </data>
 
@@ -25,7 +25,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="8dp"
-            android:src="@{trendingRepository.avatar}"
+            android:src="@{searchApiModel.owner.avatar_url}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,14 +45,14 @@
                 style="@style/ItemTitleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{trendingRepository.author}" />
+                android:text="@{searchApiModel.owner.login}" />
 
             <TextView
                 android:id="@+id/name"
                 style="@style/ItemDescriptionStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{trendingRepository.name}"
+                android:text="@{searchApiModel.name}"
                 android:layout_marginTop="6dp" />
         </LinearLayout>
 
@@ -73,7 +73,7 @@
                 android:paddingTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{trendingRepository.description}" />
+                android:text="@{searchApiModel.description}" />
 
             <TextView
                 android:id="@+id/language"
@@ -84,10 +84,10 @@
                 android:drawableStart="@drawable/language_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{trendingRepository.language}" />
+                android:text="@{searchApiModel.language}" />
 
             <TextView
-                android:id="@+id/stars"
+                android:id="@+id/watchers"
                 style="@style/ItemTitleStyle"
                 android:drawableStart="@drawable/star_yellow"
                 android:layout_below="@+id/description"
@@ -97,7 +97,7 @@
                 android:drawablePadding="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(trendingRepository.stars)}" />
+                android:text="@{String.valueOf(searchApiModel.watchers)}" />
 
             <TextView
                 android:id="@+id/forks"
@@ -105,12 +105,12 @@
                 android:drawableStart="@drawable/fork_black"
                 android:paddingStart="16dp"
                 android:layout_below="@+id/description"
-                android:layout_toEndOf="@+id/stars"
+                android:layout_toEndOf="@+id/watchers"
                 android:paddingTop="8dp"
                 android:drawablePadding="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(trendingRepository.forks)}" />
+                android:text="@{String.valueOf(searchApiModel.forks)}" />
 
         </RelativeLayout>
 

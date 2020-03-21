@@ -7,4 +7,6 @@
     <color name="darkGrey">#52575C</color>
     <color name="dividerColor">#E8E8E8</color>
     <color name="background">#dddddd</color>
+    <color name="white">#fff</color>
+    <color name="window_background">#fbfbfb</color>
 </resources>
