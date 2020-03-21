@@ -28,6 +28,6 @@ class SearchRepositoryAdapter : RecyclerView.Adapter<SearchRepositoryViewHolder>
     }
 
     override fun onBindViewHolder(holder: SearchRepositoryViewHolder, position: Int) {
-        holder.bind(items[position], position)
+        holder.bind(items[position], context)
     }
 }

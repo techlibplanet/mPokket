@@ -1,5 +1,7 @@
 package com.mpokket.models
 
+import java.io.Serializable
+
 data class SearchApiModel(
     val incomplete_results: Boolean,
     val items: List<Item>,
@@ -81,7 +83,7 @@ data class Item(
     val url: String,
     val watchers: Int,
     val watchers_count: Int
-)
+) : Serializable
 
 data class License(
     val key: String,
@@ -89,7 +91,7 @@ data class License(
     val node_id: String,
     val spdx_id: String,
     val url: String
-)
+) : Serializable
 
 data class Owner(
     val avatar_url: String,
@@ -110,4 +112,4 @@ data class Owner(
     val subscriptions_url: String,
     val type: String,
     val url: String
-)
+) : Serializable
