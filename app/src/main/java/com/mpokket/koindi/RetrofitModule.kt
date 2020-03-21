@@ -8,12 +8,12 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import timber.log.Timber
 
-val retrofitModule = module {
-
+val retrofitModule = module(override = true){
 
     single {
         okHttp()
     }
+
     single {
         retrofit(Constants.SEARCH_BASE_URL)
     }

@@ -7,13 +7,13 @@ import com.mpokket.network.ISearchRepositories
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 
-class SearchRepositoriesViewModel(
-    private val searchRepositoryService: ISearchRepositories
-) : ViewModel() {
+class ContributorsDetailsViewModel(private val searchRepositoryService: ISearchRepositories) :
+    ViewModel() {
+
     private val disposable: CompositeDisposable = CompositeDisposable()
 
-    fun getTrendingRepositories(callback: ApiResult, topic: String) {
-        disposable.add(searchRepositoryService.getRepositoriesFromTopics("topic:$topic")
+    fun getContributors(callback: ApiResult, url : String) {
+        disposable.add(searchRepositoryService.getContributors(url)
             .processRequest(
                 {
                     Timber.d(it.toString())

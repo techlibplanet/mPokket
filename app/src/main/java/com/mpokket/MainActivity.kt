@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mpokket.helper.Globals
 import com.mpokket.helper.NetworkHelper
 import com.mpokket.models.SearchApiModel
+import com.mpokket.network.ApiResult
 import com.mpokket.searchrepository.SearchRepositoryAdapter
-import com.mpokket.viewmodel.ApiResult
 import com.mpokket.viewmodel.SearchRepositoriesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -30,15 +30,15 @@ class MainActivity : AppCompatActivity(), ApiResult {
         toolbar_actionbar.title = "mPokket"
         setSupportActionBar(toolbar_actionbar)
 
-        trending_repository_recycler_view.layoutManager = LinearLayoutManager(this)
-        trending_repository_recycler_view.setHasFixedSize(true)
-        trending_repository_recycler_view.addItemDecoration(
+        search_repository_recycler_view.layoutManager = LinearLayoutManager(this)
+        search_repository_recycler_view.setHasFixedSize(true)
+        search_repository_recycler_view.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
         )
-        trending_repository_recycler_view.adapter = searchRepositoryAdapter
+        search_repository_recycler_view.adapter = searchRepositoryAdapter
 
         pullToRefresh.setOnRefreshListener {
             shimmer_view_container.visibility = View.VISIBLE;
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), ApiResult {
                     this,
                     DEFAULT_TOPIC
                 )
-                else -> showToastMessage("No Internet !")
+                else -> Globals.showToastMessage(this, getString(R.string.no_internet))
             }
             pullToRefresh.isRefreshing = false
         }
@@ -80,12 +80,9 @@ class MainActivity : AppCompatActivity(), ApiResult {
     override fun onError(error: String?) {
         shimmer_view_container.stopShimmer()
         shimmer_view_container.visibility = View.GONE
-        error?.let { showToastMessage(it) }
+        error?.let { Globals.showToastMessage(this, it) }
     }
-
-    private fun showToastMessage(message: String) =
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
+    
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_main_menu, menu)
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
@@ -111,7 +108,7 @@ class MainActivity : AppCompatActivity(), ApiResult {
                 viewModel.getTrendingRepositories(this, query)
             }
         } else {
-            showToastMessage("No Internet !")
+            Globals.showToastMessage(this, getString(R.string.no_internet))
         }
     }
 

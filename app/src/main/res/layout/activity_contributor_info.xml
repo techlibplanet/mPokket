@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data class="RepoDetailsBinding">
+    <data class="ContributorInfoBinding">
 
         <variable
-            name="repoDetailsModel"
-            type="com.mpokket.models.Item" />
+            name="contributorInfoModel"
+            type="com.mpokket.models.ContributorInfoModel" />
 
     </data>
 
@@ -34,76 +34,115 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:adjustViewBounds="true"
-                    android:src="@{repoDetailsModel.owner.avatar_url}"
+                    android:src="@{contributorInfoModel.avatar_url}"
                     app:layout_constraintDimensionRatio="H,16:9"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/label_desc"
+                    android:id="@+id/label_company"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_16dp"
-                    android:text="Description"
+                    android:text="Company"
                     android:textSize="@dimen/textSize_14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image" />
 
                 <TextView
-                    android:id="@+id/description"
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text='@{contributorInfoModel.company!=null ? contributorInfoModel.company : "-"}'
+                    android:textSize="@dimen/textSize_14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_company" />
+
+                <TextView
+                    android:id="@+id/label_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:text="Location"
+                    android:textSize="@dimen/textSize_14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/company" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="@{contributorInfoModel.location}"
+                    android:textSize="@dimen/textSize_14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/label_location" />
+
+                <TextView
+                    android:id="@+id/label_blog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_16dp"
                     android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="@{repoDetailsModel.description}"
+                    android:text="Blog"
+                    android:textSize="@dimen/textSize_14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/location" />
+
+                <TextView
+                    android:id="@+id/blog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="@{contributorInfoModel.blog}"
                     android:textSize="@dimen/textSize_14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_desc" />
+                    app:layout_constraintTop_toBottomOf="@+id/label_blog" />
 
                 <TextView
-                    android:id="@+id/label_proj_link"
+                    android:id="@+id/label_know_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
                     android:layout_marginTop="@dimen/margin_16dp"
-                    android:text="Project Link"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:text="Know more"
                     android:textSize="@dimen/textSize_14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description" />
+                    app:layout_constraintTop_toBottomOf="@+id/blog" />
 
                 <TextView
                     android:textColor="@color/hyperlink_color"
-                    android:id="@+id/proj_link"
+                    android:id="@+id/know_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="@{repoDetailsModel.html_url}"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@{contributorInfoModel.html_url}"
                     android:textSize="@dimen/textSize_14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_proj_link" />
-
-                <Button
-                    android:id="@+id/see_contributors"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:text="See Contributors"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/proj_link" />
+                    app:layout_constraintTop_toBottomOf="@+id/label_know_more" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
-
 
     </LinearLayout>
 
