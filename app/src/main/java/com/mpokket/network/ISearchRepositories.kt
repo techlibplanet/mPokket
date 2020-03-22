@@ -1,9 +1,6 @@
 package com.mpokket.network
 
-import com.mpokket.models.ContributorInfoModel
-import com.mpokket.models.ContributorsModel
-import com.mpokket.models.SearchApiModel
-import com.mpokket.models.TrendingRepositoriesModel
+import com.mpokket.models.*
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -27,5 +24,8 @@ interface ISearchRepositories {
 
     @GET
     fun getContributorInfo(@Url url: String): Observable<ContributorInfoModel>
+
+    @GET
+    fun getRepos(@Url url: String): Observable<List<RepoModel>>
 
 }

@@ -16,10 +16,10 @@ class ContributorsViewHolder(private val dataBinding: ContributorsItemBinding) :
 
         itemView.setOnClickListener {
             context.startActivity(
-                Intent(context, ContributorInfoActivity::class.java).putExtra(
-                    "contributor_info",
-                    model.url
-                )
+                Intent(context, ContributorInfoActivity::class.java).apply {
+                    putExtra("contributor_info", model.url)
+                    putExtra("repo_url", model.repos_url)
+                }
             )
         }
     }

@@ -48,7 +48,5 @@ class RepoDetailsActivity : AppCompatActivity() {
                 ).putExtra("contributor_url", item.contributors_url)
             )
         }
-
-
     }
 }

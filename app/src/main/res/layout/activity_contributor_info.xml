@@ -11,139 +11,183 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".repodetails.RepoDetailsActivity">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/toolbar" />
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".repodetails.RepoDetailsActivity">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <include layout="@layout/toolbar" />
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16dp">
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:adjustViewBounds="true"
-                    android:src="@{contributorInfoModel.avatar_url}"
-                    app:layout_constraintDimensionRatio="H,16:9"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_company"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:adjustViewBounds="true"
+                        android:src="@{contributorInfoModel.avatar_url}"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/label_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="Company"
+                        android:textSize="@dimen/textSize_14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image" />
+
+                    <TextView
+                        android:id="@+id/company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text='@{contributorInfoModel.company!=null ? contributorInfoModel.company : "-"}'
+                        android:textSize="@dimen/textSize_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/label_company" />
+
+                    <TextView
+                        android:id="@+id/label_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:text="Location"
+                        android:textSize="@dimen/textSize_14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/company" />
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text="@{contributorInfoModel.location}"
+                        android:textSize="@dimen/textSize_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/label_location" />
+
+                    <TextView
+                        android:id="@+id/label_blog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text="Blog"
+                        android:textSize="@dimen/textSize_14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+                    <TextView
+                        android:id="@+id/blog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text="@{contributorInfoModel.blog}"
+                        android:textSize="@dimen/textSize_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/label_blog" />
+
+                    <TextView
+                        android:id="@+id/label_know_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text="Know more"
+                        android:textSize="@dimen/textSize_14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/blog" />
+
+                    <TextView
+                        android:paddingBottom="@dimen/padding_16"
+                        android:id="@+id/know_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
+                        android:text="@{contributorInfoModel.html_url}"
+                        android:textColor="@color/hyperlink_color"
+                        android:textSize="@dimen/textSize_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/label_know_more" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:text="Company"
-                    android:textSize="@dimen/textSize_14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/company"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_8dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text='@{contributorInfoModel.company!=null ? contributorInfoModel.company : "-"}'
-                    android:textSize="@dimen/textSize_14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_company" />
+                    <TextView
+                        android:id="@+id/label_repos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginTop="@dimen/margin_16dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:text="Repos"
+                        android:textSize="@dimen/textSize_14sp" />
 
-                <TextView
-                    android:id="@+id/label_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:text="Location"
-                    android:textSize="@dimen/textSize_14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/company" />
+                    <View
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/greyColor"/>
 
-                <TextView
-                    android:id="@+id/location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_8dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="@{contributorInfoModel.location}"
-                    android:textSize="@dimen/textSize_14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_location" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/repos_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:scrollbars="vertical" />
 
-                <TextView
-                    android:id="@+id/label_blog"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="Blog"
-                    android:textSize="@dimen/textSize_14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/location" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/blog"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_8dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="@{contributorInfoModel.blog}"
-                    android:textSize="@dimen/textSize_14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_blog" />
+            </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/label_know_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_16dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:text="Know more"
-                    android:textSize="@dimen/textSize_14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/blog" />
-
-                <TextView
-                    android:textColor="@color/hyperlink_color"
-                    android:id="@+id/know_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_16dp"
-                    android:layout_marginTop="@dimen/margin_8dp"
-                    android:layout_marginEnd="@dimen/margin_16dp"
-                    android:layout_marginBottom="@dimen/margin_16dp"
-                    android:text="@{contributorInfoModel.html_url}"
-                    android:textSize="@dimen/textSize_14sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/label_know_more" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity(), ApiResult {
         shimmer_view_container.visibility = View.GONE
         error?.let { Globals.showToastMessage(this, it) }
     }
-    
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_main_menu, menu)
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView

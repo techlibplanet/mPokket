@@ -10,4 +10,5 @@
     <color name="white">#fff</color>
     <color name="window_background">#fbfbfb</color>
     <color name="hyperlink_color">#0000EE</color>
+    <color name="greyColor">#D3D3D3</color>
 </resources>
