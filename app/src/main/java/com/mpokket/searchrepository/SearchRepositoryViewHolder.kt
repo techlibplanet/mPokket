@@ -17,9 +17,12 @@ class SearchRepositoryViewHolder(private val dataBinding: TrendingRepositoriesBi
         dataBinding.executePendingBindings()
 
         itemView.setOnClickListener {
-            val intent = Intent(context, RepoDetailsActivity::class.java)
-            intent.putExtra("item", model)
-            context.startActivity(intent)
+            context.startActivity(
+                Intent(context, RepoDetailsActivity::class.java).putExtra(
+                    "item",
+                    model
+                )
+            )
         }
     }
 }

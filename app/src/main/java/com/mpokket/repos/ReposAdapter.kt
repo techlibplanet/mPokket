@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mpokket.databinding.ReposItemBinding
-import com.mpokket.models.RepoModel
+import com.mpokket.models.Item
 
 class ReposAdapter : RecyclerView.Adapter<ReposViewHolder>() {
 
-    var items: List<RepoModel> = emptyList()
+    var items: List<Item> = emptyList()
     private lateinit var context: Context
     private lateinit var dataBinding: ReposItemBinding
 

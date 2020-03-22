@@ -49,7 +49,15 @@ class ContributorsDetailsActivity : AppCompatActivity(), ApiResult {
     }
 
     override fun onSuccess(data: Any) {
-        setContributorsAdapter(data as List<ContributorsModel>)
+        val itemList = data as List<ContributorsModel>
+        when {
+            itemList.isNotEmpty() -> {
+                setContributorsAdapter(data as List<ContributorsModel>)
+            }
+            else -> {
+                Globals.showToastMessage(this, "No data found")
+            }
+        }
     }
 
     private fun setContributorsAdapter(list: List<ContributorsModel>) {

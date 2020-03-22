@@ -26,6 +26,6 @@ interface ISearchRepositories {
     fun getContributorInfo(@Url url: String): Observable<ContributorInfoModel>
 
     @GET
-    fun getRepos(@Url url: String): Observable<List<RepoModel>>
+    fun getRepos(@Url url: String): Observable<List<Item>>
 
 }

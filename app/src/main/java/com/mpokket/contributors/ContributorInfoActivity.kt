@@ -11,7 +11,7 @@ import com.mpokket.databinding.ContributorInfoBinding
 import com.mpokket.helper.Globals
 import com.mpokket.helper.NetworkHelper
 import com.mpokket.models.ContributorInfoModel
-import com.mpokket.models.RepoModel
+import com.mpokket.models.Item
 import com.mpokket.network.ApiResult
 import com.mpokket.repos.ReposAdapter
 import com.mpokket.viewmodel.ContributorInfoViewModel
@@ -86,10 +86,10 @@ class ContributorInfoActivity : AppCompatActivity(), ApiResult, RepoApi {
         )
         repos_recycler_view.adapter = repoAdapter
 
-        setTrendingRepositoryAdapter(data as List<RepoModel>)
+        setTrendingRepositoryAdapter(data as List<Item>)
     }
 
-    private fun setTrendingRepositoryAdapter(repoModel: List<RepoModel>) {
+    private fun setTrendingRepositoryAdapter(repoModel: List<Item>) {
         repoAdapter.items = repoModel
         repoAdapter.notifyDataSetChanged()
     }

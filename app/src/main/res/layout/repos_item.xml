@@ -5,7 +5,7 @@
 
         <variable
             name="repoModel"
-            type="com.mpokket.models.RepoModel" />
+            type="com.mpokket.models.Item" />
 
     </data>
 
