@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import timber.log.Timber
 
-val retrofitModule = module(override = true){
+val retrofitModule = module(override = true) {
 
     single {
         okHttp()

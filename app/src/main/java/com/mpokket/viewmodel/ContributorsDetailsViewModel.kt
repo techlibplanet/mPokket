@@ -12,7 +12,7 @@ class ContributorsDetailsViewModel(private val searchRepositoryService: ISearchR
 
     private val disposable: CompositeDisposable = CompositeDisposable()
 
-    fun getContributors(callback: ApiResult, url : String) {
+    fun getContributors(callback: ApiResult, url: String) {
         disposable.add(searchRepositoryService.getContributors(url)
             .processRequest(
                 {

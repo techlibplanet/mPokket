@@ -69,8 +69,7 @@ class MainActivity : AppCompatActivity(), ApiResult {
     private fun setTrendingRepositoryAdapter(searchApiModel: SearchApiModel) {
         searchRepositoryAdapter.items = searchApiModel.items
         searchRepositoryAdapter.notifyDataSetChanged()
-        shimmer_view_container.stopShimmer()
-        shimmer_view_container.visibility = View.GONE
+        stopShimmer()
     }
 
     override fun onSuccess(data: Any) {
@@ -78,8 +77,7 @@ class MainActivity : AppCompatActivity(), ApiResult {
     }
 
     override fun onError(error: String?) {
-        shimmer_view_container.stopShimmer()
-        shimmer_view_container.visibility = View.GONE
+        stopShimmer()
         error?.let { Globals.showToastMessage(this, it) }
     }
 
@@ -114,6 +112,11 @@ class MainActivity : AppCompatActivity(), ApiResult {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun stopShimmer() {
+        shimmer_view_container.stopShimmer()
+        shimmer_view_container.visibility = View.GONE
     }
 
     companion object {

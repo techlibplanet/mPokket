@@ -11,7 +11,6 @@ class WebViewActivity : AppCompatActivity() {
     private val url: String?
         get() = intent.getStringExtra("proj_link")
 
-
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
